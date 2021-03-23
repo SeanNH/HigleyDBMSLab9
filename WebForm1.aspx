@@ -8,10 +8,22 @@
 </head>
 <body>
     <h1>Welcome to Rolling Thunder</h1>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
     <form id="form1" runat="server">
+        <p></p>
+        <asp:Menu ID="Menu2" runat="server" BackColor="#FFFBD6" DataSourceID="SiteMapDataSource1" DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#990000" StaticDisplayLevels="2" StaticSubMenuIndent="10px">
+            <DynamicHoverStyle BackColor="#990000" ForeColor="White" />
+            <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+            <DynamicMenuStyle BackColor="#FFFBD6" />
+            <DynamicSelectedStyle BackColor="#FFCC66" />
+            <StaticHoverStyle BackColor="#990000" ForeColor="White" />
+            <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+            <StaticSelectedStyle BackColor="#FFCC66" />
+        </asp:Menu>
+        <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" />
+        <asp:Menu ID="Menu1" runat="server" DataSourceID="SiteMapDataSource1">
+        </asp:Menu>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
         <div>
         </div>
         <asp:DetailsView ID="DetailsView1" runat="server" AllowPaging="True" AutoGenerateRows="False" CellPadding="4" DataKeyNames="StoreID" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" Height="50px" Width="125px" OnPageIndexChanging="DetailsView1_PageIndexChanging1">
