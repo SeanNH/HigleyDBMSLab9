@@ -23,5 +23,10 @@ namespace HigleyDBMSLab9
         {
 
         }
+
+        protected void DetailsView1_PageIndexChanging1(object sender, DetailsViewPageEventArgs e)
+        {
+
+        }
     }
 }
