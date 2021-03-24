@@ -5,6 +5,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <style type="text/css">
+        #form1 {
+            font-weight: 700;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -22,8 +27,7 @@
         </asp:Menu>
         <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" />
         <br />
-        <br />
-        Highest Payed Employee<asp:DataList ID="DataList1" runat="server" CellPadding="4" DataKeyField="EmployeeID" DataSourceID="SqlDataSource2" ForeColor="#333333">
+        *****Highest Paid Employee*****<asp:DataList ID="DataList1" runat="server" CellPadding="4" DataKeyField="EmployeeID" DataSourceID="SqlDataSource2" ForeColor="#333333">
             <AlternatingItemStyle BackColor="White" />
             <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
             <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
@@ -46,7 +50,8 @@
 from Employee
 order by Employee.Salary desc"></asp:SqlDataSource>
         <br />
-        Total Sales of Bicycles per Model Type in 2010<asp:DataList ID="DataList2" runat="server" CellPadding="4" DataSourceID="SqlDataSource3" ForeColor="#333333">
+        <br />
+        *****Total Sales of Bicycles per Model Type in 2010*****<asp:DataList ID="DataList2" runat="server" CellPadding="4" DataSourceID="SqlDataSource3" ForeColor="#333333">
             <AlternatingItemStyle BackColor="White" />
             <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
             <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
@@ -74,7 +79,8 @@ where Bicycle.OrderDate like '%2010%'
 group by Bicycle.ModelType
 order by sumListPrice desc"></asp:SqlDataSource>
         <br />
-        Most Popular Bicycle Colorname Sold in March 2007<asp:DataList ID="DataList3" runat="server" CellPadding="4" DataSourceID="SqlDataSource4" ForeColor="#333333">
+        <br />
+        *****Most Popular Bicycle Colorname Sold in March 2007*****<asp:DataList ID="DataList3" runat="server" CellPadding="4" DataSourceID="SqlDataSource4" ForeColor="#333333">
             <AlternatingItemStyle BackColor="White" />
             <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
             <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
@@ -91,7 +97,8 @@ order by sumListPrice desc"></asp:SqlDataSource>
             <SelectedItemStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
         </asp:DataList>
         <br />
-        Supplier/Manufacturer we owe the most money to:<asp:DataList ID="DataList4" runat="server" CellPadding="4" DataSourceID="SqlDataSource5" ForeColor="#333333">
+        <br />
+        *****Supplier/Manufacturer we owe the most money to*****<asp:DataList ID="DataList4" runat="server" CellPadding="4" DataSourceID="SqlDataSource5" ForeColor="#333333">
             <AlternatingItemStyle BackColor="White" />
             <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
             <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
