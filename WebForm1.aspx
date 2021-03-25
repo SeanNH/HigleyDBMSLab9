@@ -20,10 +20,6 @@
             <StaticSelectedStyle BackColor="#FFCC66" />
         </asp:Menu>
         <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" />
-        <asp:Menu ID="Menu1" runat="server" DataSourceID="SiteMapDataSource1">
-        </asp:Menu>
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
         <div>
         </div>
         <asp:DetailsView ID="DetailsView1" runat="server" AllowPaging="True" AutoGenerateRows="False" CellPadding="4" DataKeyNames="StoreID" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" Height="50px" Width="125px" OnPageIndexChanging="DetailsView1_PageIndexChanging1">

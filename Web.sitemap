@@ -2,6 +2,7 @@
 <siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
   <siteMapNode url="" title=""  description="">
     <siteMapNode url="~/WebForm1.aspx" title="HomePage"  description="Welcome Home" />
-    <siteMapNode url="~/WebForm2.aspx" title="QueryPage"  description="Look around" />
+    <siteMapNode url="~/WebForm2.aspx" title="QueryPage" description="Look around" />
+    <siteMapNode url="~/WebForm3.aspx" title="Components" description="idkYet" />
   </siteMapNode>
 </siteMap>
