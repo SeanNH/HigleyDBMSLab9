@@ -19,16 +19,35 @@
     <form id="form1" runat="server">
         <h1>Welcome to the Bike Components Page</h1>
         <p>
-            <asp:DetailsView ID="DetailsView1" runat="server" AllowPaging="True" AutoGenerateRows="False" DataKeyNames="ComponentID" DataSourceID="SqlDataSourceBikeComponents" Height="50px" Width="125px">
+        <asp:Menu ID="Menu2" runat="server" BackColor="#FFFBD6" DataSourceID="SiteMapDataSource1" DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#990000" StaticDisplayLevels="2" StaticSubMenuIndent="10px">
+            <DynamicHoverStyle BackColor="#990000" ForeColor="White" />
+            <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+            <DynamicMenuStyle BackColor="#FFFBD6" />
+            <DynamicSelectedStyle BackColor="#FFCC66" />
+            <StaticHoverStyle BackColor="#990000" ForeColor="White" />
+            <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+            <StaticSelectedStyle BackColor="#FFCC66" />
+        </asp:Menu>
+        <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" />
+        <p>
+            <asp:DetailsView ID="DetailsView1" runat="server" AllowPaging="True" AutoGenerateRows="False" DataKeyNames="ComponentID" DataSourceID="SqlDataSourceBikeComponents" Height="50px" Width="125px" CellPadding="4" ForeColor="#333333" GridLines="None">
+                <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                <CommandRowStyle BackColor="#E2DED6" Font-Bold="True" />
+                <EditRowStyle BackColor="#999999" />
+                <FieldHeaderStyle BackColor="#E9ECF1" Font-Bold="True" />
                 <Fields>
                     <asp:BoundField DataField="ComponentID" HeaderText="ComponentID" ReadOnly="True" SortExpression="ComponentID" />
                     <asp:BoundField DataField="ProductNumber" HeaderText="ProductNumber" SortExpression="ProductNumber" />
                     <asp:BoundField DataField="Road" HeaderText="Road" SortExpression="Road" />
                     <asp:BoundField DataField="Category" HeaderText="Category" SortExpression="Category" />
                     <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />
-                    <asp:BoundField DataField="ListPrice" HeaderText="ListPrice" SortExpression="ListPrice" />
+                    <asp:BoundField DataField="ListPrice" HeaderText="ListPrice" SortExpression="ListPrice" DataFormatString="{0:c}" />
                     <asp:BoundField DataField="Year" HeaderText="Year" SortExpression="Year" />
                 </Fields>
+                <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
             </asp:DetailsView>
             <asp:SqlDataSource ID="SqlDataSourceBikeComponents" runat="server" ConnectionString="<%$ ConnectionStrings:RollingThunderConnectionString %>" SelectCommand="SELECT [ComponentID], [ProductNumber], [Road], [Category], [Description], [ListPrice], [Year] FROM [Component] WHERE ([Year] = @Year)">
                 <SelectParameters>
@@ -61,10 +80,10 @@
         <table class="auto-style1">
             <tr>
                 <td class="auto-style2">
-                    <asp:Button ID="componentInsert" runat="server" Text="Insert" />
+                    <asp:Button ID="componentInsert" runat="server" Text="Insert" OnClick="componentInsert_Click" />
                 </td>
                 <td>
-                    <asp:TextBox ID="SerialTextBox" runat="server" OnTextChanged="SerialTextBox_TextChanged"></asp:TextBox>
+                    <asp:TextBox ID="SerialTextBox" runat="server"></asp:TextBox>
                 </td>
                 <td>
                     <asp:TextBox ID="ComponentIDTextBox" runat="server"></asp:TextBox>
@@ -95,6 +114,7 @@
                 <td>Date Installed</td>
                 <td>EmployeeID</td>
             </tr>
+            <asp:Label ID="ErrMessage1" runat="server" ForeColor="Red"></asp:Label>
         </table>
         <p>
             <asp:GridView ID="GridView2" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="PurchaseID,ComponentID" DataSourceID="SqlDataSource2" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView2_SelectedIndexChanged">
@@ -103,7 +123,7 @@
                     <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
                     <asp:BoundField DataField="PurchaseID" HeaderText="PurchaseID" ReadOnly="True" SortExpression="PurchaseID" />
                     <asp:BoundField DataField="ComponentID" HeaderText="ComponentID" ReadOnly="True" SortExpression="ComponentID" />
-                    <asp:BoundField DataField="PricePaid" HeaderText="PricePaid" SortExpression="PricePaid" />
+                    <asp:BoundField DataField="PricePaid" HeaderText="PricePaid" SortExpression="PricePaid" DataFormatString="{0:c}" />
                     <asp:BoundField DataField="Quantity" HeaderText="Quantity" SortExpression="Quantity" />
                     <asp:BoundField DataField="QuantityReceived" HeaderText="QuantityReceived" SortExpression="QuantityReceived" />
                 </Columns>
@@ -118,9 +138,38 @@
                 <SortedDescendingCellStyle BackColor="#D4DFE1" />
                 <SortedDescendingHeaderStyle BackColor="#15524A" />
             </asp:GridView>
+            <asp:Label ID="ErrMessage2" runat="server" ForeColor="Red"></asp:Label>
         </p>
-        <p>
-            &nbsp;</p>
+        <table class="auto-style1">
+            <tr>
+                <td>
+                    <asp:Button ID="PurchaseItemInsert" runat="server" OnClick="PurchaseItemInsert_Click" Text="Insert" />
+                </td>
+                <td>
+                    <asp:TextBox ID="purchaseIDtextbox" runat="server"></asp:TextBox>
+                </td>
+                <td>
+                    <asp:TextBox ID="componentID_purchaseTextbox" runat="server"></asp:TextBox>
+                </td>
+                <td>
+                    <asp:TextBox ID="pricePaidtextbox" runat="server"></asp:TextBox>
+                </td>
+                <td>
+                    <asp:TextBox ID="quantity2textbox" runat="server"></asp:TextBox>
+                </td>
+                <td>
+                    <asp:TextBox ID="quantityRecTextbox" runat="server"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>Purchase ID</td>
+                <td>Component ID</td>
+                <td>Price Paid</td>
+                <td>Quantity</td>
+                <td>Quantity Recieved</td>
+            </tr>
+    </table>
         <p>
             &nbsp;</p>
         <p>
